@@ -43,6 +43,10 @@ Some things to keep in mind:
 
 **YOUR NOTES**
 ```
+1. Select the form, all player values
+
+2. add all values from form to an object and set to newPlayer
+3. call renderPlayer(newPlayer)
 
 ```
 

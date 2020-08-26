@@ -39,8 +39,43 @@ function toggleColor(element) {
     element.style.color = "red"
   }
 }
-
+const listener = document.getElementById('header')
+listener.addEventListener('click', () => {
+  toggleColor(document.querySelector("h1#header"))
+})
 
 /***** Deliverable 2 *****/
+const newPlayerForm = document.getElementById('new-player-form')
+// const playerName = document.querySelector("#new-player-form").name
+let newPlayer = {}
+
+newPlayerForm.addEventListener("submit", function (e) {
+  e.preventDefault()
+  const number = document.querySelector("#new-player-form").number.value
+  const name = document.querySelector("#new-player-form").name.value
+  const nickname = document.querySelector("#new-player-form").nickname.value
+  const photo = document.querySelector("#new-player-form").photo.value
+  
+  console.log(number, name, nickname, photo)
+  
+  let player = new Array();
+  player["number"] = number
+  player["name"] = name
+  player["nickname"] = nickname
+  player["photo"] = photo
+  player["likes"] = 0
+  console.log(player)
+  renderPlayer(player)
+})
 
 /***** Deliverable 3 *****/
+playerContainer.addEventListener("click", function (e) {
+  console.log(e.target)
+  if (e.target.matches("button.like-button")) {
+    let likes = playerContainer.querySelector("p.likes").innerText
+    let likeNum = likes.replace("likes", "")
+    likeNum = parseInt(likeNum, 10)
+    likes = likeNum + 1 + " likes";
+    playerContainer.querySelector("p.likes").innerText = likes
+  }
+})
